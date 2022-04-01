@@ -18,6 +18,14 @@ private WholeText text;
         sortText(list);
     }
 
+    /**
+     * Task 5
+     *In each sentence of the text, swap the first word with the last one without
+     * changing the length of the sentence
+     *
+     * @param wholeText text after parsing
+     *
+     */
     public void sortText(List<TextElement> wholeText) {
         List<TextElement> paragraphs;
         List<TextElement> blocks = text.getList();
@@ -73,7 +81,6 @@ private WholeText text;
 
         for (String s : newList) {
             System.out.println(s);
-            System.out.println("000000000000000000000-----------------00000000000000000000000000000");
         }
     }
 }

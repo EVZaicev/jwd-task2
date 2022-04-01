@@ -20,6 +20,16 @@ public class Task12 {
     public Task12() {
 
     }
+
+    /**
+     * Task 12
+     * Remove from the text all words of a given length starting with a consonant letter.
+     *
+     * @param lenght lenght of words which need to delete
+     *
+     * @param wholeText text after parsing
+     *
+     */
     public void sortText(List<TextElement> wholeText, int lenght) {
         this.text = new WholeText(wholeText);
         List<TextElement> paragraphs;
@@ -65,7 +75,6 @@ public class Task12 {
         for(String s :newList)
         {
             System.out.println(s);
-            System.out.println("12-12-12-12-12-12-12-12-21-21-21-21------1111111111111111");
         }
     }
 

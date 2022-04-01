@@ -14,6 +14,13 @@ public class ParserCodeBlock implements Parser {
     private List<TextElement> codeBlocks;
     private List<String> codePart;
 
+    /**
+     * It divides code blocks into string
+     *
+     * @param text it is text block which contains blocks
+     *
+     * @return List of blocks from text.
+     */
     @Override
     public List<TextElement> parseText(String text) throws FileNotFoundException {
         codeBlocks= new ArrayList<>();

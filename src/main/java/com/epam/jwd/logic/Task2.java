@@ -18,11 +18,10 @@ public class Task2 {
 
     private WholeText text;
 
-//    Вывести  все  предложения  заданного  текста  в  порядке  возрастания
-//    количества слов в каждом из них
+//    Print all sentences of a given text in ascending
+//    order of the number of words in each of them
     public Task2(List<TextElement> list) {
         this.text = new WholeText(list);
-
         sortText(list);
     }
 
@@ -57,8 +56,6 @@ public class Task2 {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-//        System.out.println(build);
     }
 }
 

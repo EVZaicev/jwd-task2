@@ -16,6 +16,7 @@ public class ParserSentence implements Parser {
     private static final String EXP_DIVIDING_SENTENCE = "[^\\s][a-zA-Z]*,?-?[a-z]*-?[a-z]*[^\\s]|\\d";
     List<TextElement> words;
     List<String> listWords;
+
     /**
      * It divides sentences into words
      *

@@ -38,7 +38,5 @@ public class Main {
         Task5 t2 = new Task5(list);
         Task12 t3 = new Task12();
         t3.sortText(list, 9);
-
-
     }
 }
