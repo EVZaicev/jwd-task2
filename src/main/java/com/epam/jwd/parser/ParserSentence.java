@@ -1,8 +1,5 @@
 package com.epam.jwd.parser;
 
-
-
-
 import com.epam.jwd.entity.TextElement;
 import com.epam.jwd.entity.Word;
 import org.apache.logging.log4j.LogManager;
@@ -16,18 +13,23 @@ import java.util.regex.Pattern;
 
 public class ParserSentence implements Parser {
     private static final Logger logger = LogManager.getLogger(ParserSentence.class);
+    private static final String EXP_DIVIDING_SENTENCE = "[^\\s][a-zA-Z]*,?-?[a-z]*-?[a-z]*[^\\s]|\\d";
     List<TextElement> words;
     List<String> listWords;
+    /**
+     * It divides sentences into words
+     *
+     * @param text it is text block which contains sentences
+     *
+     * @return List of words from text.
+     */
     @Override
     public List<TextElement> parseText(String text) throws FileNotFoundException {
         words =new ArrayList<>();
-//        Pattern pattern = Pattern.compile("[^\\s][a-zA-Z]*,?-?[a-z]*[^\\s]");
-        Pattern pattern = Pattern.compile("[^\\s][a-zA-Z]*,?-?[a-z]*-?[a-z]*[^\\s]|\\d");
+        Pattern pattern = Pattern.compile(EXP_DIVIDING_SENTENCE);
         Matcher m = pattern.matcher(text);
         listWords=new ArrayList<>();
         while (m.find()) {
-//            System.out.println(s);
-//            System.out.println("88888888888888888888888888888888**");
             listWords.add(m.group());
         }
         for (String s : listWords) {

@@ -2,6 +2,9 @@ package com.epam.jwd.entity;
 
 import java.util.List;
 
+/**
+ * @author Eugeny Zaitsev
+ */
 public class Paragraph implements TextElement {
 
     List<TextElement> paragraphs;

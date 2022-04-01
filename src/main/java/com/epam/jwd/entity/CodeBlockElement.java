@@ -3,6 +3,9 @@ package com.epam.jwd.entity;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * @author Eugeny Zaitsev
+ */
 public class CodeBlockElement implements TextElement{
     String value;
 

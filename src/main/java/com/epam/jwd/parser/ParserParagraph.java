@@ -10,41 +10,40 @@ import org.apache.logging.log4j.Logger;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class ParserParagraph implements Parser {
     private static final Logger logger = LogManager.getLogger(ParserParagraph.class);
+    private static final String EXP_FOR_HELPING_FINDING_SENTENCE = "^[a-zA-z](.*)[a-z\\d]$|^[12](.*)";
+    private static final String EXP_FOR_SPLITTING_SENTENCE = "^[a-zA-z](.*)[a-z\\d]$|^[12](.*)";
     List<Paragraph> paragraphs;
 
+    Parser parserSentences = new ParserSentence();
+    List<TextElement> sentenses;
+    List<String> listSentences;
     public ParserParagraph() {
         this.paragraphs = new ArrayList<>();
     }
-    Parser parserSentences = new ParserSentence();
-    List<TextElement> sentenses;
-    List<String> listSen;
+    /**
+     * This is the main method of this task.
+     * It divides text into blocks
+     * and also accepts data from other handler classes.
+     *
+     * @param paragraphBlock it is text block which contains sentences
+     *
+     * @return List of sentences from text.
+     */
     @Override
-    public List<TextElement> parseText(String paragraph) throws FileNotFoundException {
-    listSen = new ArrayList<>();
-    sentenses = new ArrayList<>();
-        //share blocks at  the parts
-        String[] s = paragraph.split("\\.\\s|\\.");
+    public List<TextElement> parseText(String paragraphBlock) throws FileNotFoundException {
+        listSentences = new ArrayList<>();
+        sentenses = new ArrayList<>();
+        String[] s = paragraphBlock.split("EXP_FOR_SPLITTING_SENTENCE");
         for (String s1 : s) {
 
-            listSen.add(s1);
+            listSentences.add(s1);
         }
 
-        for (String text : listSen) {
-
-            Pattern p = Pattern.compile("^[a-zA-z](.*)[a-z\\d]$|^[12](.*)");
-            Matcher m = p.matcher(text);
-            if (m.find()) {
-                text= text+".";
-                sentenses.add(new Sentence(parserSentences.parseText(text)));
-            }
-            else { sentenses.add(new Sentence(parserSentences.parseText(text)));}
-            System.out.println(text);
-            System.out.println("++++++++++++++++++++++++++++++++++++++++++");
+        for (String text : listSentences) {
+            sentenses.add(new Sentence(parserSentences.parseText(text)));
         }
         return sentenses;
     }
